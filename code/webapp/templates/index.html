@@ -94,23 +94,19 @@
         {% endif %}
 
         <br>
-
         {% if title|length > 0 %}
         <div class="prediction-section visible">
             <h4 class="recipe-text">Here are some recipes that I would suggest you to try:</h4>
-
-            {% set i = 0 %}
             {% for titl in title %}
             <div class="recipe-text" id="recipe{{i}}">
                 <h2>{{ titl }}</h2>
-                {% set direct = directions[i] %}
+                {% set direct = directions[loop.index0] %}
                 {% for dir in direct %}
                     <li>{{ dir }}</li>
                 {% endfor %}
-                {% set linki = link[i] %}
+                {% set linki = link[loop.index0] %}
                 <p>For more information, visit this link: <a href="{{ linki }}" target="_blank">{{ linki }}</a></p>
             </div>
-            {% set i = i + 1 %}
             {% endfor %}
             <a href="/clear_prediction" class="btn btn-light">Clear Prediction</a>
         </div>
