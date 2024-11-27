@@ -51,8 +51,11 @@ def index():
             id = prediction(ingredient_list)
 
             title = [df.iloc[i, 2] for i in id]
+            print(title)
             directions = [df.iloc[i, 4] for i in id]
+            print(directions)
             link = [df.iloc[i, 5] for i in id]
+            print(link)
 
         return render_template("index.html", ingreds=ingreds, title=title, directions=directions, link=link, show_predictions=show_predictions)
 
